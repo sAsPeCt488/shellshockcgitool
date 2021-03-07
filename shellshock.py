@@ -63,7 +63,7 @@ print("""
             Exploit CGI Scripts
         """)
 
-rhosts = input("Provide the full URL to the CGI Script (Include http:#): ")
+rhosts = input("Provide the full URL to the CGI Script (Include http://): ")
 try:
     is_alive = checkhost(rhosts)
     if not is_alive:
@@ -83,6 +83,6 @@ try:
 
 except(req.exceptions.MissingSchema, req.exceptions.ConnectionError):
     print(
-        "\n\033[91mInaccessible Host! | Please, include http:# in the url.\033[0m")
+        "\n\033[91mInaccessible Host! | Please, include http:// in the url.\033[0m")
 
 # CGI Script Shellshock Exploitation Tool Developed by sAsPeCt.sh
