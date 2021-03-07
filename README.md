@@ -11,4 +11,6 @@ Request information e.g. query parameters, user agent, etc. is stored in environ
 ## Usage:
 python3 shellshock.py
 
+
+## Extra Info:
 Developed for Symfonos3 Vulhub machine!
