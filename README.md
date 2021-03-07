@@ -13,4 +13,4 @@ python3 shellshock.py
 
 
 ## Extra Info:
-Developed for Symfonos3 Vulhub machine!
+Developed for Symfonos3 Vulnhub machine!
