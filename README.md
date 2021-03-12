@@ -13,4 +13,4 @@ python3 shellshock.py
 
 
 ## Extra Info:
-Developed for Symfonos3 Vulnhub machine!
+Developed for Symfonos3 & 0day's 0day Room in TryHackMe Vulnhub machine!
