@@ -63,8 +63,8 @@ try:
                 break
             elif cmd == 'clear':
                 clearscrn()
-                resp = getreq(rhost, cmd)
-                print(resp)
+            resp = getreq(rhost, cmd)
+            print(resp)
 
 except(req.exceptions.MissingSchema, req.exceptions.ConnectionError):
     print(
