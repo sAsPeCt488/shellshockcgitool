@@ -8,8 +8,12 @@ Vulnerable versions of Bash incorrectly execute commands that follow function de
 Some web servers (including Apache) support the Common Gateway Interface (CGI) specification which allows CLI programs to be used to generate dynamic pages.
 Request information e.g. query parameters, user agent, etc. is stored in environment variables. Standard output from the program is returned to the user as the HTTP response.
 
+## Installation
+
+`git clone https://github.com/sAsPeCt488/shellshockcgitool.git`
+
 ## Usage:
-python3 shellshock.py
+`python3 shellshock.py`
 
 
 ## Extra Info:
